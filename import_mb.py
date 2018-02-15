@@ -9,7 +9,7 @@ argvs = sys.argv
 
 jst = timezone('Japan')
 utc = timezone('UTC')
-start_jst = datetime.strptime(argvs[1], '%Y-%m-%d').replace(tzinfo=jst)
+start_jst = jst.localize(datetime.strptime(argvs[1], '%Y-%m-%d'))
 secs=60*60*24*30
 #secs=3
 
