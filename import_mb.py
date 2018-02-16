@@ -32,10 +32,10 @@ actions=[]
 for i in range(0,secs,10):
   dt_jst = start_jst + timedelta(seconds=i)
   dt_utc = dt_jst.astimezone(utc).isoformat()
-  bulk = {'_index': 'metricbeat-6.1.3-'+dt_jst.strftime('%Y.%m.%d'), '_type': 'doc'}
+  index = 'metricbeat-6.1.3-'+dt_jst.strftime('%Y.%m.%d')
   actions=[
     {
-      '_index': 'metricbeat-6.1.3-'+dt_jst.strftime('%Y.%m.%d'),
+      '_index': index,
       '_type': 'doc',
       '_source': ast.literal_eval(str[j] % dt_utc)
     }
